@@ -50,8 +50,10 @@ MAVEN_URL="http://apache.mirrors.spacedump.net/maven/maven-3/3.0.5/binaries/apac
 
 if [ ! -d .maven ]; then
   echo -n "-----> Installing Maven 3.0.5..."
-  curl $MAVEN_URL | tar xz
+  curl --silent $MAVEN_URL | tar xz
+  mv apache-maven-3.0.5 .maven
   chmod +x .maven/bin/mvn
+  mkdir .m2
   echo " done"
 fi
 
